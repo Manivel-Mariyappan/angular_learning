@@ -1,0 +1,11 @@
+<div class="d-flex gap-2 flex-wrap img_section">
+    @for(photo of photos; track photo.id){
+    <!-- <pre>{{photo | json}}</pre> -->
+    <div class="d-flex gap-2 flex-column img_section_item flex-wrap">
+        <img [src]="photo.url">
+        <p>{{photo.title}}</p>
+    </div>
+    }
+</div>
+
+<div class="skeletal-loader"></div>
