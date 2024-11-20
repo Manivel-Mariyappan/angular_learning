@@ -1,0 +1,13 @@
+.main_alyout .sidebar_section {
+    width: 250px;
+    background: #d0d0d0;
+    padding: 8px;
+    height: calc(100vh - 45px);
+}
+
+.main_alyout .main_section {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    height: calc(100vh - 45px);
+}

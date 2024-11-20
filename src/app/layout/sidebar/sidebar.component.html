@@ -1,0 +1,8 @@
+<div class="d-flex flex-column gap-2">
+
+    @for (menu of menuItems; track menu.name) {
+    <div class="menu_item">
+        <a [routerLink]="menu.pathname" routerLinkActive="active">{{menu.name}}</a>
+    </div>
+    }
+</div>
