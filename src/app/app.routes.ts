@@ -15,22 +15,27 @@ export const routes: Routes = [
             },
             {
                 path: 'component',
+                title: 'Component',
                 loadComponent: () => import('./learning-component/learning-component.component').then(c => c.LearningComponentComponent)
             },
             {
                 path: 'router',
+                title: 'Router',
                 loadComponent: () => import('./router-learning/router-learning.component').then(c => c.RouterLearningComponent)
             },
             {
                 path: 'forms-learning',
+                title: 'FOrm Learning',
                 loadComponent: () => import('./form-learning/form-learning.component').then(c => c.FormLearningComponent),
                 children: [
                     {
                         path: 'reactive-form',
+                        title: 'Reactivce Form',
                         loadComponent: () => import('./form-learning/reactive-form/reactive-form.component').then(c => c.ReactiveFormComponent)
                     },
                     {
                         path: 'template-driven-form',
+                        title: 'Template Driven',
                         loadComponent: () => import('./form-learning/template-driven-form/template-driven-form.component').then(c => c.TemplateDrivenFormComponent)
                     },
                     {
