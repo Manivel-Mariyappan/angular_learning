@@ -3,6 +3,7 @@ import { ApiService } from '../api.service';
 import { catchError, EMPTY } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SkeletalComponent } from '../../skeletal/skeletal.component';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-photos',
@@ -14,12 +15,11 @@ import { SkeletalComponent } from '../../skeletal/skeletal.component';
 })
 export class PhotosComponent {
 
+  apiService = inject(ApiService);
+
   photos: any[] = [];
   isLoading = false;
 
-  constructor(private apiService: ApiService) {
-
-  }
 
   ngOnInit() {
     this.getPhotos();
