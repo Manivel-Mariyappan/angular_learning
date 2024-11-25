@@ -1,3 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.bg_grey {
+    background: #e9ecef;
+}
+
+.required_field {
+    color: red;
+}
+
+.validation_error_section {
+    color: Red;
+}
+
+.invalid_field .form-control {
+    border: 1px solid red;
+}

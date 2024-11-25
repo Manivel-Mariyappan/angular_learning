@@ -4,7 +4,7 @@ export const forms = [
         path: 'simple-reactive-form'
     },
     {
-        name: 'Reactive',
+        name: 'Reactive form with form Group',
         path: 'reactive-form',
     },
     {

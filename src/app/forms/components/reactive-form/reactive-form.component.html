@@ -1,1 +1,67 @@
-<p>reactive-form works!</p>
+<form [formGroup]="userForm" (ngSubmit)="userFormSubmit(userForm)">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group mt-3">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="firstName" placeholder="first Name"
+                    formControlName="fistName">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="last Name"
+                    formControlName="lastName">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" placeholder="email" formControlName="email">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>description</label>
+                <textarea class="form-control" rows="5" name="description" formControlName="description"></textarea>
+            </div>
+
+        </div>
+        <div class="col-lg-4" formGroupName="address">
+            <div class="form-group mt-3">
+                <label>Address One</label>
+                <input type="text" class="form-control" name="address1" placeholder="address1"
+                    formControlName="address1">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Address Two</label>
+                <input type="text" class="form-control" name="address2" placeholder="address2"
+                    formControlName="address2">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>State</label>
+                <input type="text" class="form-control" name="state" placeholder="state" formControlName="state">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>City</label>
+                <input type="text" class="form-control" name="city" placeholder="city" formControlName="city">
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Zip</label>
+                <input type="text" class="form-control" name="zip" placeholder="zip" formControlName="zip">
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 float-end">Submit</button>
+
+        </div>
+        <div class="col-lg-4">
+            <div class="bg_grey p-4 rounded mt-4">
+                <pre>{{userForm.status | json}}</pre>
+                <pre>
+                    {{userForm.value | json}}
+                 </pre>
+            </div>
+        </div>
+    </div>
+</form>

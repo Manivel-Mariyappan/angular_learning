@@ -7,15 +7,6 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './simple-reactive-form.component.html',
-  styles: `
-      .validation_error_section {
-        color: Red;
-      }
-
-      .invalid_field .form-control{
-         border: 1px solid red;
-      }
-  `
 })
 export class SimpleReactiveFormComponent {
 

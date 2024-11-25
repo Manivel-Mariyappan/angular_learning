@@ -12,6 +12,14 @@ import { ApiService } from '../../service/api.service';
   standalone: true,
   imports: [CommonModule, SkeletalComponent],
   templateUrl: './photos.component.html',
+  styles: `
+  .img_section .img_section_item{
+    max-width: 200px;
+  }
+  .img_section .img_section_item img{
+    max-width: 100%;
+  }
+  `,
   providers: [ApiService],
 })
 export class PhotosComponent {
