@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
-import { forms } from './form-constant';
+import { forms } from '../../constants/form-constant';
 
 @Component({
   selector: 'app-form-learning',

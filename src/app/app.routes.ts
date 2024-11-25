@@ -44,23 +44,23 @@ export const routes: Routes = [
             {
                 path: 'forms-learning',
                 title: 'FOrm Learning',
-                loadComponent: () => import('./form-learning/form-learning.component').then(c => c.FormLearningComponent),
+                loadComponent: () => import('./forms/components/form-learning/form-learning.component').then(c => c.FormLearningComponent),
                 canActivate: [authGuardGuard],
                 children: [
                     {
                         path: 'simple-reactive-form',
                         title: 'Simple Reactive Form',
-                        loadComponent: () => import('./form-learning/simple-reactive-form/simple-reactive-form.component').then(c => c.SimpleReactiveFormComponent)
+                        loadComponent: () => import('./forms/components/simple-reactive-form/simple-reactive-form.component').then(c => c.SimpleReactiveFormComponent)
                     },
                     {
                         path: 'reactive-form',
                         title: 'Reactivce Form',
-                        loadComponent: () => import('./form-learning/reactive-form/reactive-form.component').then(c => c.ReactiveFormComponent)
+                        loadComponent: () => import('./forms/components/reactive-form/reactive-form.component').then(c => c.ReactiveFormComponent)
                     },
                     {
                         path: 'template-driven-form',
                         title: 'Template Driven',
-                        loadComponent: () => import('./form-learning/template-driven-form/template-driven-form.component').then(c => c.TemplateDrivenFormComponent)
+                        loadComponent: () => import('./forms/components/template-driven-form/template-driven-form.component').then(c => c.TemplateDrivenFormComponent)
                     },
                     {
                         path: '',
