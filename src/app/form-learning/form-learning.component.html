@@ -1,6 +1,7 @@
 <div class="menu_item inner_menu d-flex gap-4">
-    <a routerLink="/forms-learning/reactive-form" routerLinkActive="active">Reactive</a>
-    <a routerLink="/forms-learning/template-driven-form" routerLinkActive="active">Template Driven</a>
+    @for(menu of formCategories; track menu.name) {
+    <a routerLink="./{{menu.path}}" routerLinkActive="active">{{menu.name}}</a>
+    }
 </div>
 
 <router-outlet></router-outlet>

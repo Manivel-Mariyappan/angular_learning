@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../api.service';
 import { catchError, EMPTY } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { SkeletalComponent } from '../../skeletal/skeletal.component';
 import { inject } from '@angular/core';
+
+import { SkeletalComponent } from '../../../shared/components/skeletal/skeletal.component';
+import { ApiService } from '../../service/api.service';
+
 
 @Component({
   selector: 'app-photos',
   standalone: true,
   imports: [CommonModule, SkeletalComponent],
   templateUrl: './photos.component.html',
-  styleUrl: './photos.component.scss',
   providers: [ApiService],
 })
 export class PhotosComponent {

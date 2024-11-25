@@ -13,7 +13,7 @@ export const routes: Routes = [
     },
     {
         path: 'unauthorized',
-        loadComponent: () => import('./shared/un-authorized/un-authorized.component').then(c => c.UnAuthorizedComponent)
+        loadComponent: () => import('./shared/components/un-authorized/un-authorized.component').then(c => c.UnAuthorizedComponent)
     },
     {
         path: 'environment',
@@ -48,6 +48,11 @@ export const routes: Routes = [
                 canActivate: [authGuardGuard],
                 children: [
                     {
+                        path: 'simple-reactive-form',
+                        title: 'Simple Reactive Form',
+                        loadComponent: () => import('./form-learning/simple-reactive-form/simple-reactive-form.component').then(c => c.SimpleReactiveFormComponent)
+                    },
+                    {
                         path: 'reactive-form',
                         title: 'Reactivce Form',
                         loadComponent: () => import('./form-learning/reactive-form/reactive-form.component').then(c => c.ReactiveFormComponent)
@@ -60,18 +65,18 @@ export const routes: Routes = [
                     {
                         path: '',
                         pathMatch: 'full',
-                        redirectTo: 'reactive-form'
+                        redirectTo: 'simple-reactive-form'
                     }
                 ]
             },
             {
                 path: 'api-call-learning',
-                loadComponent: () => import('./api-call-learning/api-call-learning.component').then(c => c.ApiCallLearningComponent),
+                loadComponent: () => import('./api-call-learning/components/photos/photos.component').then(c => c.PhotosComponent),
                 canActivate: [authGuardGuard]
             },
             {
                 path: '**',
-                loadComponent: () => import('./shared/not-found/not-found.component').then(c => c.NotFoundComponent),
+                loadComponent: () => import('./shared/components/not-found/not-found.component').then(c => c.NotFoundComponent),
                 canActivate: [authGuardGuard]
             },
             {
