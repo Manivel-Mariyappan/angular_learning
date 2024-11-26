@@ -27,8 +27,10 @@ export class ReactiveFormComponent {
 
 
   userFormSubmit(userFrom: FormGroup) {
-
-    debugger;
-
+    if (userFrom.valid) {
+      //we make api call
+    }
+    else
+      userFrom.markAllAsTouched();
   }
 }
