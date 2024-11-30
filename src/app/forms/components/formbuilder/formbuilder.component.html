@@ -1,0 +1,185 @@
+<form [formGroup]="userForm" (ngSubmit)="userFormSubmit(userForm)">
+    <div class="row mt-4">
+
+        <div class="col-lg-4">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>First Name <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="firstName" placeholder="first Name"
+                            formControlName="firstName" required>
+
+                        <div *ngIf="userForm.get('firstName')?.invalid && (userForm.get('firstName')?.dirty || userForm.get('firstName')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('firstName')?.hasError('required')">First name is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Last Name <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="lastName" placeholder="last Name"
+                            formControlName="lastName">
+
+                        <div *ngIf="userForm.get('lastName')?.invalid && (userForm.get('lastName')?.dirty || userForm.get('lastName')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('lastName')?.hasError('required')">Last name is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mb-2">
+                    <label>Gender <span class="required_field">*</span></label>
+                    <div class="d-flex gap-2">
+                        @for(gender of genderOptions; track gender.name) {
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="gender" [value]=" gender.value"
+                                formControlName="gender">
+                            {{gender.name}}
+                            <label class="form-check-label"></label>
+                        </div>
+                        }
+                    </div>
+                    <div *ngIf="userForm.get('gender')?.invalid && (userForm.get('gender')?.dirty || userForm.get('gender')?.touched)"
+                        class="validation_error_section">
+                        <p *ngIf="userForm.get('gender')?.hasError('required')">Gender is required.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Email <span class="required_field">*</span></label>
+                        <input type="email" class="form-control" name="email" placeholder="email"
+                            formControlName="email">
+
+                        <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('email')?.hasError('required')">Email is required.</p>
+                            <p *ngIf="userForm.get('email')?.hasError('email')">Invlid Email</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Phone <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="mobile" placeholder="mobile"
+                            formControlName="mobile">
+
+                        <div *ngIf="userForm.get('mobile')?.invalid && (userForm.get('mobile')?.dirty || userForm.get('mobile')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('mobile')?.hasError('required')">Email is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group mb-2">
+                        <label>hobbies</label>
+                        <textarea class="form-control" name="hobbies" formControlName="hobbies"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="address"
+                            formControlName="address">
+
+                        <div *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('address')?.hasError('required')">Address is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>City<span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="city" placeholder="city" formControlName="city">
+
+                        <div *ngIf="userForm.get('city')?.invalid && (userForm.get('city')?.dirty || userForm.get('city')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('city')?.hasError('required')">City is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>State <span class="required_field">*</span></label>
+                        <select class="form-control" name="state" formControlName="state">
+                            <option [value]="''" selected>select state</option>
+                            @for(state of states; track state.id) {
+                            <option [value]="state.id">{{state.name}}</option>
+                            }
+                        </select>
+                        <div *ngIf="userForm.get('state')?.invalid && (userForm.get('state')?.dirty || userForm.get('state')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('state')?.hasError('required')">State is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Zip <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="zip" placeholder="zip" formControlName="zip">
+
+                        <div *ngIf="userForm.get('zip')?.invalid && (userForm.get('zip')?.dirty || userForm.get('zip')?.touched)"
+                            class="validation_error_section">
+                            <p *ngIf="userForm.get('zip')?.hasError('required')">Zip is required.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="col-lg-12" formArrayName="skills">
+                @for(skill of getSkills.controls; track index; let index=$index) {
+                <div class="row mb-2" style="border-bottom: 1px solid #d0d0d0" [formGroupName]="index">
+                    <div class="col-lg-12">
+                        <div class="form-group mb-2">
+                            <label>Skill Name<span class="required_field">*</span></label>
+                            <input type="text" class="form-control" name="zip" placeholder="zip" formControlName="name">
+
+                            <div *ngIf="skill.get('name')?.invalid && (skill.get('name')?.dirty || skill.get('name')?.touched)"
+                                class="validation_error_section">
+                                <p *ngIf="skill.get('name')?.hasError('required')">Zip is
+                                    required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mb-2">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" placeholder="description"
+                                formControlName="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                }
+                <button type="button" class="btn btn-sm btn-secondary mb-2 float-end" (click)="addNewSkills()">
+                    Add Skills
+                </button>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="bg_grey p-2 rounded mt-4">
+                <pre class="m-0">Form Status : {{userForm.status | json}}</pre>
+                <pre class="m-0">{{userForm.value | json}}</pre>
+            </div>
+        </div>
+
+        <div class="col-lg-12 mt-2">
+            <button type="submit" class="btn btn-primary mb-2 float-end">Submit</button>
+            <button type="button" class="btn btn-secondary mb-2 float-end me-2" (click)="resetForm()">Reset</button>
+        </div>
+
+    </div>
+</form>

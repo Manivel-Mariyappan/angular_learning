@@ -7,7 +7,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './reactive-form.component.html',
-  styleUrl: './reactive-form.component.scss'
 })
 export class ReactiveFormComponent {
 

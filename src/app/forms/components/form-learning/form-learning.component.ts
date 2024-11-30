@@ -7,7 +7,18 @@ import { forms } from '../../constants/form-constant';
   standalone: true,
   imports: [RouterLink, RouterModule, RouterOutlet, RouterLinkActive],
   templateUrl: './form-learning.component.html',
-  styleUrl: './form-learning.component.scss'
+  styles: `
+        .inner_menu a {
+          text-decoration: none;
+          color: #111111;
+        }
+        .inner_menu a.active {
+          background: blue;
+          padding: 4px;
+          border-radius: 4px;
+          color: white;
+        }
+  `
 })
 export class FormLearningComponent {
 

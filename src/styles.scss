@@ -8,6 +8,7 @@
 
 .required_field {
     color: red;
+    margin-left: 2px;
 }
 
 .validation_error_section {
@@ -15,5 +16,9 @@
 }
 
 .invalid_field .form-control {
+    border: 1px solid red;
+}
+
+.form-control.ng-invalid.ng-touched{
     border: 1px solid red;
 }

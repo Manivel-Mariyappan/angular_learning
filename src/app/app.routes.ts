@@ -58,6 +58,11 @@ export const routes: Routes = [
                         loadComponent: () => import('./forms/components/reactive-form/reactive-form.component').then(c => c.ReactiveFormComponent)
                     },
                     {
+                        path: 'reactive-formbuilder',
+                        title: 'Form Builder',
+                        loadComponent: () => import('./forms/components/formbuilder/formbuilder.component').then(c => c.FormbuilderComponent),
+                    },
+                    {
                         path: 'template-driven-form',
                         title: 'Template Driven',
                         loadComponent: () => import('./forms/components/template-driven-form/template-driven-form.component').then(c => c.TemplateDrivenFormComponent)
