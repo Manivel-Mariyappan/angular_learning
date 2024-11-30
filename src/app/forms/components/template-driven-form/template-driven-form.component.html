@@ -1,1 +1,187 @@
-<p>template-driven-form works!</p>
+<form #userForm="ngForm" (ngSubmit)="saveUserForm(userForm)">
+    <div class="row mt-4">
+
+        <div class="col-lg-4">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>First Name <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="userModel.firstName"
+                            placeholder="First Name" #firstName="ngModel" required [minlength]="10" [maxlength]="20">
+
+                        <div class="validation_error_section"
+                            *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                            <p *ngIf="firstName.hasError('required')">First name is required.</p>
+                            <p *ngIf="firstName.hasError('minlength') || firstName.hasError('maxlength')">
+                                First name must be at least 10 characters and not
+                                exceed 20 characters.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Last Name <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="lastName" placeholder="Last Name"
+                            [(ngModel)]="userModel.lastName" #lastName="ngModel" required [minlength]="10"
+                            [maxlength]="20">
+                        <div class="validation_error_section"
+                            *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                            <p *ngIf="lastName.hasError('required')">Last name is required.</p>
+                            <p *ngIf="lastName.hasError('minlength') || firstName.hasError('maxlength')">
+                                Last name must be at least 10 characters and not
+                                exceed 20 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mb-2">
+                    <label>Gender <span class="required_field">*</span></label>
+                    <div class="d-flex gap-2">
+                        <ng-container *ngFor="let gender of genderOptions">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" [(ngModel)]="userModel.gender"
+                                    name="gender" #genderModel="ngModel" [value]="gender.value" required>
+                                {{gender.name}}
+                                <label class="form-check-label"></label>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!-- <div class="validation_error_section" *ngIf="genderModel?.invalid && (genderModel.dirty || genderModel.touched)">
+                        <p *ngIf="genderModel.hasError('required')">Gender is required.</p>
+                    </div> -->
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Email <span class="required_field">*</span></label>
+                        <input type="email" class="form-control" name="email" placeholder="Email"
+                            [(ngModel)]="userModel.email" #email="ngModel" required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                        <div class="validation_error_section" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <p *ngIf="email.hasError('required')">Email is required.</p>
+                            <p *ngIf="email.hasError('pattern')">Invalid Email.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Phone <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="mobile" placeholder="Mobile"
+                            [(ngModel)]="userModel.mobile" pattern="^[0-9]{10}$" #mobile="ngModel" required
+                            maxlength="10">
+                        <div class="validation_error_section"
+                            *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+                            <p *ngIf="mobile.hasError('required')">Phone is required.</p>
+                            <p *ngIf="mobile.hasError('pattern')">Please enter only numbers with exactly 10 digits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group mb-2">
+                        <label>Hobbies</label>
+                        <textarea class="form-control" name="hobbies" [(ngModel)]="userModel.hobbies"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="Address"
+                            [(ngModel)]="userModel.address" #address="ngModel" required>
+                        <div class="validation_error_section"
+                            *ngIf="address.invalid && (address.dirty || address.touched)">
+                            <p *ngIf="address.hasError('required')">Address is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>City <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="city" placeholder="City"
+                            [(ngModel)]="userModel.city" #city="ngModel" required>
+                        <div class="validation_error_section" *ngIf="city.invalid && (city.dirty || city.touched)">
+                            <p *ngIf="city.hasError('required')">City is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>State <span class="required_field">*</span></label>
+                        <select class="form-control" name="state" [(ngModel)]="userModel.state" #state="ngModel"
+                            required>
+                            <option value="" selected>Select State</option>
+                            @for(state of states; track index; let index=$index){
+                            <option [value]="state.id">{{state.name}}</option>
+                            }
+                        </select>
+                        <div class="validation_error_section" *ngIf="state.invalid && (state.dirty || state.touched)">
+                            <p *ngIf="state.hasError('required')">State is required.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mb-2">
+                        <label>Zip <span class="required_field">*</span></label>
+                        <input type="text" class="form-control" name="zip" placeholder="Zip" [(ngModel)]="userModel.zip"
+                            #zip="ngModel" required>
+                        <div class="validation_error_section" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
+                            <p *ngIf="zip.hasError('required')">State is required.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="col-lg-12">
+                @for(skill of userModel.skills; track index; let index=$index){
+                <div class="row mb-2" style="border-bottom: 1px solid #d0d0d0">
+                    <div class="col-lg-12">
+                        <div class="form-group mb-2">
+                            <label>Skill Name <span class="required_field">*</span></label>
+                            <input type="text" class="form-control" name="skillName{{index}}" [(ngModel)]="skill.name"
+                                placeholder="Skill Name" #name="ngModel" required>
+                            <div class="validation_error_section" *ngIf="name.invalid && (name.dirty || name.touched)">
+                                <p *ngIf="name.hasError('required')">name is required.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mb-2">
+                            <label>Description</label>
+                            <textarea class="form-control" placeholder="Description" name="description{{index}}"
+                                [(ngModel)]="skill.description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                }
+                <button type="button" class="btn btn-sm btn-secondary mb-2 float-end" (click)="addNewSkil()">
+                    Add Skills
+                </button>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="bg_grey p-2 rounded mt-4">
+                <pre class="m-0">Form Status {{userForm.status}}</pre>
+                <pre class="m-0">{{userModel | json}}</pre>
+            </div>
+        </div>
+
+        <div class="col-lg-12 mt-2">
+            <button type="submit" class="btn btn-primary mb-2 float-end">Submit</button>
+            <button type="button" class="btn btn-secondary mb-2 float-end me-2"
+                (click)="userFormReset(userForm)">Reset</button>
+        </div>
+    </div>
+</form>

@@ -145,12 +145,13 @@
                     <div class="col-lg-12">
                         <div class="form-group mb-2">
                             <label>Skill Name<span class="required_field">*</span></label>
-                            <input type="text" class="form-control" name="zip" placeholder="zip" formControlName="name">
+                            <input type="text" class="form-control" name="zip" placeholder="Name"
+                                formControlName="name">
 
                             <div *ngIf="skill.get('name')?.invalid && (skill.get('name')?.dirty || skill.get('name')?.touched)"
                                 class="validation_error_section">
-                                <p *ngIf="skill.get('name')?.hasError('required')">Zip is
-                                    required.</p>
+                                <p *ngIf="skill.get('name')?.hasError('required')">
+                                    Name is required.</p>
                             </div>
                         </div>
                     </div>

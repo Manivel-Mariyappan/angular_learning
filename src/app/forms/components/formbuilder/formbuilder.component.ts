@@ -32,7 +32,13 @@ export class FormbuilderComponent {
 
   ngOnInit() {
     setTimeout(() => {
-      this.userForm.patchValue(sampleDbValue);
+      this.userForm.patchValue({ ...sampleDbValue });
+      sampleDbValue.skills.forEach((skill) => {
+        this.getSkills.push(this.formBuilder.group({
+          name: [skill.name, Validators.required],
+          description: [skill.description]
+        }));
+      })
     }, 2000);
   }
 
