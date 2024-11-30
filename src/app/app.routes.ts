@@ -16,10 +16,6 @@ export const routes: Routes = [
         loadComponent: () => import('./shared/components/un-authorized/un-authorized.component').then(c => c.UnAuthorizedComponent)
     },
     {
-        path: 'environment',
-        loadComponent: () => import('./environment-setup/environment-setup.component').then((component) => component.EnvironmentSetupComponent),
-    },
-    {
         path: '',
         loadComponent: () => import('./layout/layout.component').then((c) => c.LayoutComponent),
         canActivate: [authGuardGuard],
