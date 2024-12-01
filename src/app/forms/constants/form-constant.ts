@@ -4,18 +4,19 @@ export const forms = [
         path: 'simple-reactive-form'
     },
     {
-        name: 'Reactive form with form Group',
-        path: 'reactive-form',
+        name: 'Reactive Form with Form Group',
+        path: 'reactive-form'
     },
     {
-        name: 'Reactive form builder demo',
+        name: 'Reactive Form Builder Demo',
         path: 'reactive-formbuilder'
     },
     {
-        name: 'Template Driven',
+        name: 'Template Driven Form',
         path: 'template-driven-form'
     }
-]
+];
+
 
 export const genderOptions = [
     { name: 'Male', value: 'male' },
