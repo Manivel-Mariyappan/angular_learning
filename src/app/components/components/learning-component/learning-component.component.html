@@ -1,0 +1,7 @@
+<div class="menu_item inner_menu d-flex gap-4 mb-4">
+    @for(menu of components; track menu.name) {
+    <a routerLink="./{{menu.path}}" routerLinkActive="active">{{menu.name}}</a>
+    }
+</div>
+
+<router-outlet></router-outlet>

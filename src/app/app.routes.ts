@@ -28,8 +28,25 @@ export const routes: Routes = [
             {
                 path: 'component',
                 title: 'Component',
-                loadComponent: () => import('./components/learning-component/learning-component.component').then(c => c.LearningComponentComponent),
-                canActivate: [authGuardGuard]
+                loadComponent: () => import('./components/components/learning-component/learning-component.component').then(c => c.LearningComponentComponent),
+                canActivate: [authGuardGuard],
+                children: [
+                    {
+                        path: 'compoennet-doc',
+                        title: 'Documentation',
+                        loadComponent: () => import('./components/components/component-doc/component-doc.component').then(c => c.ComponentDocComponent)
+                    },
+                    {
+                        path: 'child-communication',
+                        title: 'Child Communication',
+                        loadComponent: () => import('./components/components/parent-child-communication/parent-child-communication.component').then(c => c.ParentChildCommunicationComponent)
+                    },
+                    {
+                        path: '',
+                        pathMatch: 'full',
+                        redirectTo: 'compoennet-doc'
+                    }
+                ]
             },
             {
                 path: 'router',

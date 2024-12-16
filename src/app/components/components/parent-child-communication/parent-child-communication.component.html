@@ -1,0 +1,8 @@
+<div class="border border-primary p-4">
+    <p>Parent Component - ({{dataToChild}})</p>
+    <button class="btn btn-primary mb-2" (click)="changeInput()">change text From Parent</button>
+
+    <div class="border border-warning p-4">
+        <app-child [childInputData]="dataToChild" (handleChildChangeEvent)="getValueFromChild($event)"></app-child>
+    </div>
+</div>
