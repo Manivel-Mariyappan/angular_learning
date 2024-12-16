@@ -28,7 +28,7 @@ export const routes: Routes = [
             {
                 path: 'component',
                 title: 'Component',
-                loadComponent: () => import('./learning-component/learning-component.component').then(c => c.LearningComponentComponent),
+                loadComponent: () => import('./components/learning-component/learning-component.component').then(c => c.LearningComponentComponent),
                 canActivate: [authGuardGuard]
             },
             {
